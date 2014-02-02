@@ -13,3 +13,8 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 
 #alias tmux="TERM=screen-256color-bce tmux"
 export TERM=screen-256color-bce
+
+#git autocomplete
+if [ -f ~/.git-completion.bash ]; then
+  . ~/.git-completion.bash
+fi
