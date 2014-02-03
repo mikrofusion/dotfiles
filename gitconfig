@@ -1,4 +1,6 @@
 [user]
+	name = Mike Groseclose
+	email = mike.groseclose@gmail.com
 [diff]
 	tool = vimdiff
 [merge]
