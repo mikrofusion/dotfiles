@@ -2,14 +2,13 @@
 	name = Mike Groseclose
 	email = mike.groseclose@gmail.com
 [diff]
-	guitool = meld
-	tool = meld
+	tool = vimdiff
 [merge]
-	tool = meld
+	tool = vimdiff
 [color]
 	ui = true
 [core]
-	editor = subl
+	editor = vi
 [branch]
   autosetuprebase = always
 [alias]
