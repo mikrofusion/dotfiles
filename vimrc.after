@@ -1,0 +1,21 @@
+
+set term=screen-256color-bce
+
+syntax on
+set background=dark
+set t_Co=256                        " force vim to use 256 colors
+colorscheme jellybeans
+
+let &colorcolumn="80,".join(range(120,999),",")
+highlight ColorColumn ctermbg=235 guibg=#2c2d27
+
+" easier split navigation
+nnoremap <silent> <C-Right> <c-w>l
+nnoremap <silent> <C-Left> <c-w>h
+nnoremap <silent> <C-Up> <c-w>k
+nnoremap <silent> <C-Down> <c-w>j
+
+" use system keyboard
+set clipboard=unnamed
+
+nnoremap <SPACE> :let @/ = ""

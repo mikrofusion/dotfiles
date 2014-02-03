@@ -18,3 +18,9 @@ export TERM=screen-256color-bce
 if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
 fi
+
+# use mvim inplace of vim (better integration with mac)
+alias vi='mvim -v' 
+alias vim='mvim -v'
+set -o vi
+
