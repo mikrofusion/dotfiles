@@ -27,3 +27,5 @@
 	default = current
 [pull]
 	default = current
+[credential]
+	helper = osxkeychain

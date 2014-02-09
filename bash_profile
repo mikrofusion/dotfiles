@@ -22,5 +22,7 @@ fi
 # use mvim inplace of vim (better integration with mac)
 alias vi='mvim -v' 
 alias vim='mvim -v'
+export EDITOR='vim'
 set -o vi
+
 
