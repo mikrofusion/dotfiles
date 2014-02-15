@@ -19,3 +19,13 @@ nnoremap <silent> <C-Down> <c-w>j
 set clipboard=unnamed
 
 nnoremap <SPACE> :let @/ = ""
+
+"" make vim show relative numbers
+"set relativenumber
+
+" quicker ack access
+nnoremap <leader>a :Ack
+
+" remap jj to escape
+inoremap jj <ESC>
+
