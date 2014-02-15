@@ -17,7 +17,9 @@ nnoremap <silent> <C-Down> <c-w>j
 " use system keyboard
 set clipboard=unnamed
 
-nnoremap <silent> <SPACE> :let @/ = ""
+" toggle search highlighting
+"nnoremap <silent> <SPACE> :let @/ = ""
+nnoremap <silent> <SPACE> :set hlsearch!<CR>
 
 " make vim show relative numbers (disable since we use number_toggle)
 " set relativenumber
