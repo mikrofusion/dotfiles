@@ -6,6 +6,9 @@ vim/.netrwhist
 # Vimius file
 vim/.vimius
 
+# janus (install from git)
+vim/janus
+
 # Plugins without git-mirror
 vim/watchtower.vim
 vim/mustache.vim
