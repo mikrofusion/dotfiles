@@ -17,7 +17,7 @@ nnoremap <silent> <C-Down> <c-w>j
 " use system keyboard
 set clipboard=unnamed
 
-nnoremap <SPACE> :let @/ = ""
+nnoremap <silent> <SPACE> :let @/ = ""
 
 " make vim show relative numbers (disable since we use number_toggle)
 " set relativenumber
@@ -42,3 +42,4 @@ imap <up> <nop>
 imap <down> <nop>
 imap <left> <nop>
 imap <right> <nop>
+
