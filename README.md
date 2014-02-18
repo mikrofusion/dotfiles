@@ -19,3 +19,7 @@ note:  In iTerm2, in Preferences -> Profiles -> Terminal, under "Terminal Emulat
 
 also will want to set the colorscheme of iterm2 to match the colorscheme being used
 
+Note:  TMUX will probably require you to install the following (you'll
+know cause it will error on boot).
+
+brew install reattach-to-user-namespace
