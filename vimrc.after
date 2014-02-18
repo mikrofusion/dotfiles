@@ -25,6 +25,9 @@ nnoremap <silent> <SPACE> :set hlsearch!<CR>
 " set relativenumber
 source $HOME/.vim/number_toggle.vim
 
+" dim inactive windows
+source $HOME/.vim/diminactive.vim
+
 " quicker ack access
 nnoremap <leader>a :Ack
 
