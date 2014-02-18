@@ -36,12 +36,31 @@ nnoremap <leader>w <C-w>v<C-w>l
 nnoremap <leader>s <C-w>s<C-w>l
 
 " remove ability to use arrow keys (help force vim level up)
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
-imap <up> <nop>
-imap <down> <nop>
-imap <left> <nop>
-imap <right> <nop>
+let g:arrowsenabled = 1
 
+function! ArrowsOff()
+  map <up> <nop>
+  map <down> <nop>
+  map <left> <nop>
+  map <right> <nop>
+  imap <up> <nop>
+  imap <down> <nop>
+  imap <left> <nop>
+  imap <right> <nop>
+endfunc
+
+function! ArrowsOn()
+  map <up> <up>
+  map <down> <down>
+  map <left> <left>
+  map <right> <right>
+  imap <up> <up>
+  imap <down> <down>
+  imap <left> <left>
+  imap <right> <right>
+endfunc
+
+call ArrowsOff()
+
+nnoremap <leader>k :call ArrowsOn() <CR>
+nnoremap <leader>kk :call ArrowsOff() <CR>

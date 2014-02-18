@@ -29,4 +29,4 @@ vimrc currently is a symbolic link specific to my system.  need
 to fix this.
 
 .vim is currently not a symbolic link and should be, for now manually
-correct
+corrected
