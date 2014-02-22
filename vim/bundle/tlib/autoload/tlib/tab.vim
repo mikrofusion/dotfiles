@@ -3,8 +3,8 @@
 " @Website:     http://www.vim.org/account/profile.php?user_id=4037
 " @License:     GPL (see http://www.gnu.org/licenses/gpl.txt)
 " @Created:     2007-08-27.
-" @Last Change: 2014-02-06.
-" @Revision:    0.0.30
+" @Last Change: 2009-02-15.
+" @Revision:    0.0.29
 
 if &cp || exists("loaded_tlib_tab_autoload")
     finish
@@ -50,8 +50,6 @@ endf
 
 
 function! tlib#tab#Set(tabnr) "{{{3
-    if a:tabnr > 0
-        exec a:tabnr .'tabnext'
-    endif
+    exec a:tabnr .'tabnext'
 endf
 

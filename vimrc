@@ -1,5 +1,5 @@
 """""""""""""""""""""""""""""""""""""""""
-" settings (taken from janus core/before)
+" janus settings (taken from janus core/before)
 """""""""""""""""""""""""""""""""""""""""
 source $HOME/.vim/settings/autocmds.vim
 source $HOME/.vim/settings/filetypes.vim
@@ -20,7 +20,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " Color Theme
-Bundle "jellybeans.vim"
+Bundle "nanotech/jellybeans.vim"
 
 " add vim snipmate
 Bundle "MarcWeber/vim-addon-mw-utils"
@@ -28,67 +28,42 @@ Bundle "tomtom/tlib_vim"
 Bundle "garbas/vim-snipmate"
 Bundle "honza/vim-snippets"
 
+" Add number toggle (relative)
+Bundle "jeffkreeftmeijer/vim-numbertoggle"
+
 " Janus libraries
-Bundle "ack"
-" Bundle "before"
-Bundle "buffergator"
-Bundle "css-color"
-Bundle "ctrlp"
-Bundle "dispatch"
-Bundle "easymotion"
-Bundle "endwise"
-Bundle "eunuch"
-Bundle "fugitive"
-Bundle "gist"
-Bundle "gundo"
-"Bundle "kwdb"
-Bundle "matchit"
-Bundle "multiple-cursors"
-Bundle "narrowregion"
-Bundle "nerdcommenter"
-Bundle "nerdtree"
-Bundle "repeat"
-Bundle "supertab"
-Bundle "syntastic"
-Bundle "tagbar"
-"Bundle "tasks"
-Bundle "tlib"
-Bundle "tlib_vim"
-
-Bundle "unimpaired"
-Bundle "vim-trailing-whitespace"
-" Bundle "vim_test_runner"
-Bundle "vimwiki"
-Bundle "visualstar"
-Bundle "vroom"
-" Bundle "watchtower"
-Bundle "webapi"
-Bundle "zoomwin"
-
-
-
-
-"Bundle 'ToadJamb/vim_test_runner'
-" The following are examples of different formats supported.
-" Keep bundle commands between here and filetype plugin indent on.
-" scripts on GitHub repos
-"Bundle 'tpope/vim-fugitive'
-"Bundle 'Lokaltog/vim-easymotion'
-"Bundle 'tpope/vim-rails.git'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-"Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-" scripts from http://vim-scripts.org/vim/scripts.html
-"Bundle 'L9'
-"Bundle 'FuzzyFinder'
-" scripts not on GitHub
-"Bundle 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-"Bundle 'file:///home/gmarik/path/to/plugin'
-" ...
+Bundle "petdance/ack2"
+Bundle "jeetsukumaran/vim-buffergator"
+Bundle "ap/vim-css-color"
+Bundle "kien/ctrlp.vim"
+Bundle "tpope/vim-dispatch"
+Bundle "Lokaltog/vim-easymotion"
+Bundle "tpope/vim-endwise"
+Bundle "tpope/vim-eunuch"
+Bundle "tpope/vim-fugitive"
+Bundle "mattn/gist-vim"
+Bundle "sjl/gundo.vim"
+Bundle "rgarver/Kwbd.vim"
+Bundle "edsono/vim-matchit"
+Bundle "terryma/vim-multiple-cursors"
+Bundle "chrisbra/NrrwRgn"
+Bundle "scrooloose/nerdcommenter"
+Bundle "scrooloose/nerdtree"
+Bundle "tpope/vim-repeat"
+Bundle "ervandew/supertab"
+Bundle "tpope/vim-surround"
+Bundle "scrooloose/syntastic"
+Bundle "majutsushi/tagbar"
+Bundle "tpope/vim-unimpaired"
+Bundle "bronson/vim-trailing-whitespace"
+Bundle "vim-scripts/vimwiki"
+Bundle "thinca/vim-visualstar"
+Bundle "skalnik/vim-vroom"
+Bundle "mattn/webapi-vim"
+Bundle "itspriddle/ZoomWin"
 
 filetype plugin indent on     " required
-"
+
 " Brief help
 " :BundleList          - list configured bundles
 " :BundleInstall(!)    - install (update) bundles
@@ -100,12 +75,6 @@ filetype plugin indent on     " required
 
 " to run VUNDLE run :BundleInstall from the VIM command line.
 """" VUNDLE CONFIG (END) """"""""""""""""""""""""""""""""""""""""""""""""""
-
-
-
-
-
-
 set term=screen-256color-bce
 
 syntax on
@@ -113,9 +82,16 @@ set background=dark
 set t_Co=256                        " force vim to use 256 colors
 colorscheme jellybeans
 
-let &colorcolumn="80,".join(range(120,999),",")
+let &colorcolumn=join(range(81,999),",")
 highlight ColorColumn ctermbg=235 guibg=#2c2d27
 
+" Dim inactive windows, highlight line 80 for active window.
+augroup BgHighlight
+    autocmd!
+    autocmd WinEnter * let &colorcolumn=join(range(81,999),",")
+    autocmd WinLeave * let &colorcolumn=join(range(1,999),",")
+augroup END
+"
 " easier split navigation
 nnoremap <silent> <C-Right> <c-w>l
 nnoremap <silent> <C-Left> <c-w>h
@@ -128,13 +104,6 @@ set clipboard=unnamed
 " toggle search highlighting
 "nnoremap <silent> <SPACE> :let @/ = ""
 nnoremap <silent> <SPACE> :set hlsearch!<CR>
-
-" make vim show relative numbers (disable since we use number_toggle)
-" set relativenumber
-source $HOME/.vim/number_toggle.vim
-
-" dim inactive windows
-source $HOME/.vim/diminactive.vim
 
 " quicker ack access
 nnoremap <leader>a :Ack
