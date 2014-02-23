@@ -26,7 +26,7 @@ Bundle "nanotech/jellybeans.vim"
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 Bundle "garbas/vim-snipmate"
-"Bundle "honza/vim-snippets"
+Bundle "honza/vim-snippets"
 
 " Add number toggle (relative)
 Bundle "jeffkreeftmeijer/vim-numbertoggle"
@@ -93,6 +93,10 @@ syntax on
 set background=dark
 set t_Co=256                        " force vim to use 256 colors
 colorscheme jellybeans
+
+set tabstop=2
+set shiftwidth=2
+set expandtab
 
 let &colorcolumn=join(range(81,999),",")
 highlight ColorColumn ctermbg=235 guibg=#2c2d27
