@@ -25,4 +25,4 @@ alias vim='mvim -v'
 export EDITOR='vim'
 set -o vi
 
-
+alias gf='cat ~/.bash_files/git_flow'

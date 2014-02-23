@@ -1,0 +1,30 @@
+GIT FLOW
+  PREPARE FOR PULL REQUEST
+    - git checkout <feature branch>
+    - git add <files>
+    - git commit -m "<commit comments>"
+    - git checkout <base branch>
+    - git pull --rebase
+    - git reset --hard
+    - git rebase -i <base branch> <feature branch>
+        (alternatively could do:
+          "git checkout <feature branch>"
+          "git rebase <feature branch> -i"
+        )
+    - git push -f origin <branchname>
+  DO PULL REQUEST
+    - git checkout <base branch>
+    - git pull --rebase
+    - git reset --hard
+    - git merge <feature branch> --no-ff
+  NOTE A:  POTENTIAL FOR OTHER COMMITS TO OCCUR HERE
+    - git push
+  NOTE:  IF AN ERROR OCCURS DUE TO A CHANGE ON BASE BRANCH INSERT NOTE B
+  DELETE BRANCH
+    - git push origin :<feature branch>
+
+  NOTE B:
+    - git reset --hard (alternatively "git reset HEAD")
+    - git pull
+    - git merge <feature branch>
+    - git push
