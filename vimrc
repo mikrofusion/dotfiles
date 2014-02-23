@@ -26,10 +26,22 @@ Bundle "nanotech/jellybeans.vim"
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 Bundle "garbas/vim-snipmate"
-Bundle "honza/vim-snippets"
+"Bundle "honza/vim-snippets"
 
 " Add number toggle (relative)
 Bundle "jeffkreeftmeijer/vim-numbertoggle"
+
+" Language support
+Bundle "tpope/vim-rails"
+Bundle "vim-ruby/vim-ruby"
+Bundle "pangloss/vim-javascript"
+Bundle "skwp/vim-rspec"
+Bundle "sunaku/vim-ruby-minitest"
+Bundle "tpope/vim-markdown"
+Bundle "cakebaker/scss-syntax.vim"
+Bundle "kchmck/vim-coffee-script"
+Bundle "chrisbra/csv.vim"
+Bundle "tpope/vim-git"
 
 " Janus libraries
 Bundle "petdance/ack2"
