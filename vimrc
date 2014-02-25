@@ -31,11 +31,21 @@ Bundle "honza/vim-snippets"
 " Add number toggle (relative)
 Bundle "jeffkreeftmeijer/vim-numbertoggle"
 
+
+
+" Add rspec runner
+"Bundle 'thoughtbot/vim-rspec'
+"map <Leader>t :call RunCurrentSpecFile()<CR>
+"map <Leader>s :call RunNearestSpec()<CR>
+"map <Leader>l :call RunLastSpec()<CR>
+"map <Leader>a :call RunAllSpecs()<CR>
+"let g:rspec_command = "!bundle exec rspec"
+
 " Language support
 Bundle "tpope/vim-rails"
 Bundle "vim-ruby/vim-ruby"
 Bundle "pangloss/vim-javascript"
-Bundle "skwp/vim-rspec"
+"Bundle "skwp/vim-rspec"
 Bundle "sunaku/vim-ruby-minitest"
 Bundle "tpope/vim-markdown"
 Bundle "cakebaker/scss-syntax.vim"
@@ -72,9 +82,12 @@ Bundle "vim-scripts/vimwiki"
 Bundle "thinca/vim-visualstar"
 Bundle "skalnik/vim-vroom"
 Bundle "mattn/webapi-vim"
-Bundle "itspriddle/ZoomWin"
 
+Bundle "itspriddle/ZoomWin"
 filetype plugin indent on     " required
+
+" Add vim test runner
+Bundle "ToadJamb/vim_test_runner"
 
 " Brief help
 " :BundleList          - list configured bundles
@@ -87,6 +100,11 @@ filetype plugin indent on     " required
 
 " to run VUNDLE run :BundleInstall from the VIM command line.
 """" VUNDLE CONFIG (END) """"""""""""""""""""""""""""""""""""""""""""""""""
+
+" Add vim test runner
+map <silent> <leader>rt :call tt:TriggerTest()<CR>
+map <silent> <leader>r :call tt:TriggerPreviousTest()<CR>
+
 set term=screen-256color-bce
 
 syntax on
@@ -160,3 +178,19 @@ call ArrowsOff()
 
 nnoremap <leader>k :call ArrowsOn() <CR>
 nnoremap <leader>kk :call ArrowsOff() <CR>
+
+" Todo:  investigate using ctrlP function instead as it may be more robust
+function! SetGitDir()
+    " Change working dir to the current file
+    cd %:p:h
+    " Set 'gitdir' to be the folder containing .git
+    let gitdir=system("git rev-parse --show-toplevel")
+    " See if the command output starts with 'fatal' (if it does, not in a git repo)
+    let isnotgitdir=matchstr(gitdir, '^fatal:.*')
+    " If it empty, there was no error. Let's cd
+    if empty(isnotgitdir)
+        cd `=gitdir`
+    endif
+endfunction
+
+call SetGitDir()

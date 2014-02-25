@@ -2,5 +2,19 @@ snippet rspec
 	require 'spec_helper'
 
 	describe ${1:`substitute(substitute(vim_snippets#Filename(), '_spec$', '', ''), '\(_\|^\)\(.\)', '\u\2', 'g')`} do
+		describe '${2:#method}' do
+			subject { ${3:object} }
+
+			context '${4:scenario}' do
+				let(:${5:object}) { ${6:Class.new()} }
+
+				before  { ${7:object.some_method} }
+
+				it '${8:does something}' do
+					expect(${9:subject.value}).${10:to} ${11:eq val}
+				end
+			end
+		end
+
 		${0}
 	end
