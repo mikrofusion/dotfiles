@@ -18,7 +18,7 @@ nmap <leader>U mQgewvU`Q
 nmap <leader>L mQgewvu`Q
 
 " cd to the directory containing the file in the buffer
-nmap <silent> <leader>cd :lcd %:h<CR>
+" nmap <silent> <leader>cd :lcd %:h<CR>
 
 " Create the directory containing the file in the buffer
 nmap <silent> <leader>md :!mkdir -p %:p:h<CR>
