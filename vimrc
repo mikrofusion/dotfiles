@@ -111,9 +111,14 @@ map <silent> <leader>r :call tt:TriggerPreviousTest()<CR>
 set term=screen-256color-bce
 
 syntax on
+set ruler
 set background=dark
 set t_Co=256                        " force vim to use 256 colors
 colorscheme jellybeans
+
+" highlight the active line
+set cursorline
+hi CursorLine cterm=underline ctermbg=NONE
 
 set tabstop=2
 set shiftwidth=2
