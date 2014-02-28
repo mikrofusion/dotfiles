@@ -31,7 +31,8 @@ Bundle "honza/vim-snippets"
 " Add number toggle (relative)
 Bundle "jeffkreeftmeijer/vim-numbertoggle"
 
-
+" vim livescript plugin
+Bundle "gkz/vim-ls"
 
 " Add rspec runner
 "Bundle 'thoughtbot/vim-rspec'
@@ -53,14 +54,17 @@ Bundle "kchmck/vim-coffee-script"
 Bundle "chrisbra/csv.vim"
 Bundle "tpope/vim-git"
 
+" allow seamless TMUX / VIM integration
+Bundle 'christoomey/vim-tmux-navigator'
+
 " Janus libraries
 Bundle "petdance/ack2"
 Bundle "jeetsukumaran/vim-buffergator"
 Bundle "ap/vim-css-color"
 Bundle "kien/ctrlp.vim"
 Bundle "tpope/vim-dispatch"
-Bundle "Lokaltog/vim-easymotion"
 Bundle "tpope/vim-endwise"
+Bundle "Lokaltog/vim-easymotion"
 Bundle "tpope/vim-eunuch"
 Bundle "tpope/vim-fugitive"
 Bundle "mattn/gist-vim"
@@ -92,11 +96,11 @@ Bundle "airblade/vim-rooter"
 " Add vim test runner
 Bundle "ToadJamb/vim_test_runner"
 
+" :BundleClean(!)      - confirm (or auto-approve) removal of unused bundles
 " Brief help
 " :BundleList          - list configured bundles
 " :BundleInstall(!)    - install (update) bundles
 " :BundleSearch(!) foo - search (or refresh cache first) for foo
-" :BundleClean(!)      - confirm (or auto-approve) removal of unused bundles
 "
 " see :h vundle for more details or wiki for FAQ
 " NOTE: comments after Bundle commands are not allowed.
@@ -122,7 +126,7 @@ hi CursorLine cterm=underline ctermbg=NONE
 
 set tabstop=2
 set shiftwidth=2
-set expandtab
+set expandtab ts=2 sw=2 ai
 
 let &colorcolumn=join(range(81,999),",")
 highlight ColorColumn ctermbg=235 guibg=#2c2d27
