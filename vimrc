@@ -8,6 +8,10 @@ source $HOME/.vim/settings/mappings.vim
 source $HOME/.vim/settings/settings.vim
 source $HOME/.vim/settings/statusline.vim
 
+" Directories for swp files
+set backupdir=~/.vim/bkup
+set directory=~/.vim/bkup
+
 """" VUNDLE CONFIG (BEGIN) """"""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -57,6 +61,9 @@ Bundle "tpope/vim-git"
 " allow seamless TMUX / VIM integration
 Bundle 'christoomey/vim-tmux-navigator'
 
+" allow git changes to be seen in gutter
+Bundle 'airblade/vim-gitgutter'
+
 " Janus libraries
 Bundle "petdance/ack2"
 Bundle "jeetsukumaran/vim-buffergator"
@@ -96,17 +103,7 @@ Bundle "airblade/vim-rooter"
 " Add vim test runner
 Bundle "ToadJamb/vim_test_runner"
 
-" :BundleClean(!)      - confirm (or auto-approve) removal of unused bundles
-" Brief help
-" :BundleList          - list configured bundles
-" :BundleInstall(!)    - install (update) bundles
-" :BundleSearch(!) foo - search (or refresh cache first) for foo
-"
-" see :h vundle for more details or wiki for FAQ
-" NOTE: comments after Bundle commands are not allowed.
-
-" to run VUNDLE run :BundleInstall from the VIM command line.
-"""" VUNDLE CONFIG (END) """"""""""""""""""""""""""""""""""""""""""""""""""
+Bundle 'bling/vim-airline'
 
 " Add vim test runner
 map <silent> <leader>rt :call tt:TriggerTest()<CR>
@@ -123,6 +120,12 @@ colorscheme jellybeans
 " highlight the active line
 set cursorline
 hi CursorLine cterm=underline ctermbg=NONE
+
+" Gitgutter
+highlight clear SignColumn
+
+" vim airline
+let g:airline#extensions#tabline#enabled = 1
 
 set tabstop=2
 set shiftwidth=2

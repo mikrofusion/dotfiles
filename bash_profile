@@ -51,6 +51,10 @@ alias glog='git log'
 alias glogp='git log --pretty=format:"%h %s" --graph'
 alias gl='git log --color --graph --pretty=format:"Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
 
+alias ber='bundle exec rake'
+
+#test runner
+alias vim_test_runner='ruby ~/.vim/bundle/vim_test_runner/test_runner'
 # RVM
 if [[ -s "$HOME/.rvm/scripts/rvm" ]]; then . "$HOME/.rvm/scripts/rvm"; fi
 alias rspec="bundle exec rspec"
