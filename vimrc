@@ -53,8 +53,11 @@ Bundle 'christoomey/vim-tmux-navigator'
 " allow git changes to be seen in gutter
 Bundle 'airblade/vim-gitgutter'
 
+" ag the silver searcher
+Bundle 'rking/ag.vim'
+
 " Janus libraries
-Bundle "petdance/ack2"
+"Bundle "petdance/ack2" (replaced by ag)
 Bundle "ap/vim-css-color"
 Bundle "kien/ctrlp.vim"
 Bundle "tpope/vim-dispatch"
@@ -182,9 +185,8 @@ set clipboard=unnamed
 "nnoremap <silent> <SPACE> :let @/ = ""
 nnoremap <silent> <SPACE> :set hlsearch!<CR>
 
-" quicker ack access
-nnoremap <leader>a :Ack
-
+" quicker ag access
+nnoremap <leader>a :Ag
 
 " shortcuts for splitting the screen
 nnoremap <leader>w <C-w>v<C-w>l
@@ -198,9 +200,13 @@ if bufwinnr(1)
   map < <C-W>>
 endif
 
-" remove ability to use arrow keys (help force vim level up)
-let g:arrowsenabled = 1
+" buffer switching
+noremap <silent> { :bprev <CR>
+noremap <silent> } :bnext <CR>
+" allows switching between unsaved buffers
+set hidden
 
+" remove ability to use arrow keys (help force vim level up)
 function! ArrowsOff()
   map <up> <nop>
   map <down> <nop>
@@ -211,23 +217,10 @@ function! ArrowsOff()
   imap <left> <nop>
   imap <right> <nop>
 endfunc
-
-"function! ArrowsOn()
-  "map <up> <up>
-  "map <down> <down>
-  "map <left> <left>
-  "map <right> <right>
-  "imap <up> <up>
-  "imap <down> <down>
-  "imap <left> <left>
-  "imap <right> <right>
-"endfunc
-
-"call ArrowsOff()
+call ArrowsOff()
 
 
 nnoremap <leader>k :call ArrowsOn() <CR>
-"nnoremap <leader>kk :call ArrowsOff() <CR>
 
 filetype plugin indent on                        " required for Vundle
 
