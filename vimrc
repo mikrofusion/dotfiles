@@ -201,8 +201,8 @@ if bufwinnr(1)
 endif
 
 " buffer switching
-noremap <silent> { :bprev <CR>
-noremap <silent> } :bnext <CR>
+noremap <silent> <C-[> :bprev <CR>
+noremap <silent> <C-]> :bnext <CR>
 " allows switching between unsaved buffers
 set hidden
 
