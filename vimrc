@@ -92,6 +92,9 @@ let g:airline_powerline_fonts = 1               " needed for powerline symbols
 " Add vim test runner
 " Bundle "ToadJamb/vim_test_runner"
 
+" visualization of vim markers
+Bundle "kshenoy/vim-signature" 
+
 " vim test runner keys
 " map <silent> <leader>rt :call tt:TriggerTest()<CR>
 " map <silent> <leader>r :call tt:TriggerPreviousTest()<CR>
@@ -133,6 +136,9 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
+
+" always show the status bar (want this for airline)
+set laststatus=2
 
 " highlight the active line
 set cursorline
@@ -220,6 +226,13 @@ filetype plugin indent on                        " required for Vundle
 " Bundle "skwp/vim-rspec"
 "
 
+
+  " Start the status line
+  "set statusline=%f\ %m\ %r
+  "set statusline+=Line:%l/%L[%p%%]
+  "set statusline+=Col:%v
+  "set statusline+=Buf:#%n
+  "set statusline+=[%b][0x%B]
 """""""""""""""""""""""""""""""""""""""""
 " janus settings (taken from janus core/before)
 """""""""""""""""""""""""""""""""""""""""
