@@ -190,6 +190,14 @@ nnoremap <leader>a :Ack
 nnoremap <leader>w <C-w>v<C-w>l
 nnoremap <leader>s <C-w>s<C-w>l
 
+" window resizing
+if bufwinnr(1)
+  map + <C-W>+
+  map _ <C-W>-
+  map > <C-W><
+  map < <C-W>>
+endif
+
 " remove ability to use arrow keys (help force vim level up)
 let g:arrowsenabled = 1
 
@@ -216,6 +224,7 @@ endfunc
 "endfunc
 
 "call ArrowsOff()
+
 
 nnoremap <leader>k :call ArrowsOn() <CR>
 "nnoremap <leader>kk :call ArrowsOff() <CR>
