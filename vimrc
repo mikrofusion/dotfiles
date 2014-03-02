@@ -27,6 +27,13 @@ Bundle "honza/vim-snippets"
 " Add number toggle (relative)
 Bundle "jeffkreeftmeijer/vim-numbertoggle"
 
+" Add vim test runner
+Bundle "ToadJamb/vim_test_runner"
+
+" vim test runner keys
+map <silent> <leader>t :call tt:TriggerTest()<CR>
+map <silent> <leader>r :call tt:TriggerPreviousTest()<CR>
+
 " Language support
 " livescript
 Bundle "gkz/vim-ls"
@@ -89,15 +96,9 @@ let g:airline#extensions#tabline#enabled = 1    " add buffer tabs to top
 Bundle "edkolev/tmuxline.vim"
 let g:airline_powerline_fonts = 1               " needed for powerline symbols
 
-" Add vim test runner
-" Bundle "ToadJamb/vim_test_runner"
-
 " visualization of vim markers
 Bundle "kshenoy/vim-signature" 
 
-" vim test runner keys
-" map <silent> <leader>rt :call tt:TriggerTest()<CR>
-" map <silent> <leader>r :call tt:TriggerPreviousTest()<CR>
 
 
 set term=screen-256color-bce
