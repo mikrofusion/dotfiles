@@ -99,8 +99,6 @@ let g:airline_powerline_fonts = 1               " needed for powerline symbols
 " visualization of vim markers
 Bundle "kshenoy/vim-signature" 
 
-
-
 set term=screen-256color-bce
 syntax on
 set number
@@ -109,11 +107,16 @@ set background=dark
 set t_Co=256                        " force vim to use 256 colors
 colorscheme jellybeans              " user jellybeans scheme
 
+highlight Normal ctermbg=none
+highlight CursorLineNr ctermbg=233
+highlight LineNr ctermbg=232
 " Gitgutter
-highlight clear SignColumn
+highlight SignColumn ctermbg=none
+
+" Gitgutter
+"highlight clear SignColumn
 
 " Spacing
-set nowrap
 set wm=0
 set tw=0
 set tabstop=2
@@ -137,6 +140,7 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
+set nowrap
 
 " always show the status bar (want this for airline)
 set laststatus=2
@@ -147,7 +151,8 @@ hi CursorLine cterm=underline ctermbg=NONE
 
 " make make grey after line 80
 let &colorcolumn=join(range(81,999),",")
-highlight ColorColumn ctermbg=235 guibg=#2c2d27
+highlight ColorColumn ctermbg=232 guibg=#202020
+"#2c2d27
 
 " Dim inactive windows, highlight line 80 for active window.
 augroup BgHighlight
@@ -156,6 +161,12 @@ augroup BgHighlight
     autocmd WinLeave * let &colorcolumn=join(range(1,999),",")
 augroup END
 
+augroup BgHighlight
+    autocmd!
+    autocmd WinEnter * set cul
+    autocmd WinLeave * set nocul
+augroup END
+"
 " remap jj to escape
 inoremap jj <esc>
 "
