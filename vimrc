@@ -1,29 +1,21 @@
-"""""""""""""""""""""""""""""""""""""""""
-" janus settings (taken from janus core/before)
-"""""""""""""""""""""""""""""""""""""""""
-source $HOME/.vim/settings/autocmds.vim
-source $HOME/.vim/settings/filetypes.vim
-source $HOME/.vim/settings/gui_settings.vim
-source $HOME/.vim/settings/mappings.vim
-source $HOME/.vim/settings/settings.vim
-source $HOME/.vim/settings/statusline.vim
-
-" Directories for swp files
-set backupdir=~/.vim/bkup
+set backupdir=~/.vim/bkup               " Directories for swp files
 set directory=~/.vim/bkup
 
-"""" VUNDLE CONFIG (BEGIN) """"""""""""""""""""""""""""""""""""""""""""""""""
-set nocompatible              " be iMproved, required
-filetype off                  " required
+set encoding=utf-8                      " The encoding displayed.
+set fileencoding=utf-8                  " The encoding written to file.
 
-" set the runtime path to include Vundle and initialize
+set nocompatible                        " be iMproved, required for Vundle
+filetype off                            " required for Vundle
+
+" set runtime path for Vundle
 set rtp+=~/.vim/bundle/vundle/
+" intialize Vundle
 call vundle#rc()
 
 " let Vundle manage Vundle, required
 Bundle 'gmarik/vundle'
 
-" Color Theme
+" color theme
 Bundle "nanotech/jellybeans.vim"
 
 " add vim snipmate
@@ -35,22 +27,12 @@ Bundle "honza/vim-snippets"
 " Add number toggle (relative)
 Bundle "jeffkreeftmeijer/vim-numbertoggle"
 
-" vim livescript plugin
-Bundle "gkz/vim-ls"
-
-" Add rspec runner
-"Bundle 'thoughtbot/vim-rspec'
-"map <Leader>t :call RunCurrentSpecFile()<CR>
-"map <Leader>s :call RunNearestSpec()<CR>
-"map <Leader>l :call RunLastSpec()<CR>
-"map <Leader>a :call RunAllSpecs()<CR>
-"let g:rspec_command = "!bundle exec rspec"
-
 " Language support
+" livescript
+Bundle "gkz/vim-ls"
 Bundle "tpope/vim-rails"
 Bundle "vim-ruby/vim-ruby"
 Bundle "pangloss/vim-javascript"
-"Bundle "skwp/vim-rspec"
 Bundle "sunaku/vim-ruby-minitest"
 Bundle "tpope/vim-markdown"
 Bundle "cakebaker/scss-syntax.vim"
@@ -66,7 +48,7 @@ Bundle 'airblade/vim-gitgutter'
 
 " Janus libraries
 Bundle "petdance/ack2"
-Bundle "jeetsukumaran/vim-buffergator"
+"Bundle "jeetsukumaran/vim-buffergator"
 Bundle "ap/vim-css-color"
 Bundle "kien/ctrlp.vim"
 Bundle "tpope/vim-dispatch"
@@ -76,7 +58,7 @@ Bundle "tpope/vim-eunuch"
 Bundle "tpope/vim-fugitive"
 Bundle "mattn/gist-vim"
 Bundle "sjl/gundo.vim"
-Bundle "rgarver/Kwbd.vim"
+"Bundle "rgarver/Kwbd.vim"
 Bundle "edsono/vim-matchit"
 Bundle "terryma/vim-multiple-cursors"
 Bundle "chrisbra/NrrwRgn"
@@ -95,42 +77,68 @@ Bundle "skalnik/vim-vroom"
 Bundle "mattn/webapi-vim"
 
 Bundle "itspriddle/ZoomWin"
-filetype plugin indent on     " required
 
 " set vim root to the project root
 Bundle "airblade/vim-rooter"
 
-" Add vim test runner
-Bundle "ToadJamb/vim_test_runner"
-
+" vim airline (powerline-like theme)
 Bundle 'bling/vim-airline'
+let g:airline#extensions#tabline#enabled = 1    " add buffer tabs to top
+
+" plugin to create airline theme for tmux
+Bundle "edkolev/tmuxline.vim"
+let g:airline_powerline_fonts = 1               " needed for powerline symbols
 
 " Add vim test runner
-map <silent> <leader>rt :call tt:TriggerTest()<CR>
-map <silent> <leader>r :call tt:TriggerPreviousTest()<CR>
+" Bundle "ToadJamb/vim_test_runner"
+
+" vim test runner keys
+" map <silent> <leader>rt :call tt:TriggerTest()<CR>
+" map <silent> <leader>r :call tt:TriggerPreviousTest()<CR>
+
 
 set term=screen-256color-bce
-
 syntax on
+set number
 set ruler
 set background=dark
 set t_Co=256                        " force vim to use 256 colors
-colorscheme jellybeans
+colorscheme jellybeans              " user jellybeans scheme
+
+" Gitgutter
+highlight clear SignColumn
+
+" Spacing
+set nowrap
+set wm=0
+set tw=0
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab ts=2 sw=2 ai
+set autoindent
+set smartindent
+
+" Show trailing whitespace
+set list listchars=tab:\ \ ,trail:.
+
+" Bubble lines
+nmap <C-k> [e
+nmap <C-j> ]e
+vmap <C-k> [egv
+vmap <C-j> ]egv
+
+" Searching
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
 
 " highlight the active line
 set cursorline
 hi CursorLine cterm=underline ctermbg=NONE
 
-" Gitgutter
-highlight clear SignColumn
-
-" vim airline
-let g:airline#extensions#tabline#enabled = 1
-
-set tabstop=2
-set shiftwidth=2
-set expandtab ts=2 sw=2 ai
-
+" make make grey after line 80
 let &colorcolumn=join(range(81,999),",")
 highlight ColorColumn ctermbg=235 guibg=#2c2d27
 
@@ -140,6 +148,9 @@ augroup BgHighlight
     autocmd WinEnter * let &colorcolumn=join(range(81,999),",")
     autocmd WinLeave * let &colorcolumn=join(range(1,999),",")
 augroup END
+
+" remap jj to escape
+inoremap jj <esc>
 "
 " easier split navigation
 nnoremap <silent> <C-Right> <c-w>l
@@ -157,8 +168,6 @@ nnoremap <silent> <SPACE> :set hlsearch!<CR>
 " quicker ack access
 nnoremap <leader>a :Ack
 
-" remap jj to escape
-inoremap jj <ESC>
 
 " shortcuts for splitting the screen
 nnoremap <leader>w <C-w>v<C-w>l
@@ -193,3 +202,35 @@ call ArrowsOff()
 
 nnoremap <leader>k :call ArrowsOn() <CR>
 nnoremap <leader>kk :call ArrowsOff() <CR>
+
+filetype plugin indent on                        " required for Vundle
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vimrc graveyard (below are items no longer being used)
+"
+"
+" Add rspec runner
+"Bundle 'thoughtbot/vim-rspec'
+"map <Leader>t :call RunCurrentSpecFile()<CR>
+"map <Leader>s :call RunNearestSpec()<CR>
+"map <Leader>l :call RunLastSpec()<CR>
+"map <Leader>a :call RunAllSpecs()<CR>
+"let g:rspec_command = "!bundle exec rspec"
+
+" Bundle "skwp/vim-rspec"
+"
+
+"""""""""""""""""""""""""""""""""""""""""
+" janus settings (taken from janus core/before)
+"""""""""""""""""""""""""""""""""""""""""
+"if has("autocmd")
+  "if exists("g:autosave_on_blur")
+    "au FocusLost * silent! wall
+  "endif
+"endif
+"source $HOME/.vim/settings/filetypes.vim
+"source $HOME/.vim/settings/gui_settings.vim
+"source $HOME/.vim/settings/mappings.vim
+"source $HOME/.vim/settings/settings.vim
+"source $HOME/.vim/settings/statusline.vim
+
