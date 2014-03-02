@@ -55,7 +55,6 @@ Bundle 'airblade/vim-gitgutter'
 
 " Janus libraries
 Bundle "petdance/ack2"
-"Bundle "jeetsukumaran/vim-buffergator"
 Bundle "ap/vim-css-color"
 Bundle "kien/ctrlp.vim"
 Bundle "tpope/vim-dispatch"
@@ -65,7 +64,6 @@ Bundle "tpope/vim-eunuch"
 Bundle "tpope/vim-fugitive"
 Bundle "mattn/gist-vim"
 Bundle "sjl/gundo.vim"
-"Bundle "rgarver/Kwbd.vim"
 Bundle "edsono/vim-matchit"
 Bundle "terryma/vim-multiple-cursors"
 Bundle "chrisbra/NrrwRgn"
@@ -82,7 +80,10 @@ Bundle "vim-scripts/vimwiki"
 Bundle "thinca/vim-visualstar"
 Bundle "skalnik/vim-vroom"
 Bundle "mattn/webapi-vim"
+"Bundle "rgarver/Kwbd.vim"
+"Bundle "jeetsukumaran/vim-buffergator"
 
+" Zoom in and out of current pane (C-W, O)
 Bundle "itspriddle/ZoomWin"
 
 " set vim root to the project root
@@ -107,14 +108,12 @@ set background=dark
 set t_Co=256                        " force vim to use 256 colors
 colorscheme jellybeans              " user jellybeans scheme
 
+" make the colors pretty
 highlight Normal ctermbg=none
 highlight CursorLineNr ctermbg=233
 highlight LineNr ctermbg=232
 " Gitgutter
 highlight SignColumn ctermbg=none
-
-" Gitgutter
-"highlight clear SignColumn
 
 " Spacing
 set wm=0
@@ -152,15 +151,15 @@ hi CursorLine cterm=underline ctermbg=NONE
 " make make grey after line 80
 let &colorcolumn=join(range(81,999),",")
 highlight ColorColumn ctermbg=232 guibg=#202020
-"#2c2d27
 
 " Dim inactive windows, highlight line 80 for active window.
-augroup BgHighlight
-    autocmd!
-    autocmd WinEnter * let &colorcolumn=join(range(81,999),",")
-    autocmd WinLeave * let &colorcolumn=join(range(1,999),",")
-augroup END
+"augroup BgHighlight
+    "autocmd!
+    "autocmd WinEnter * let &colorcolumn=join(range(81,999),",")
+    "autocmd WinLeave * let &colorcolumn=join(range(1,999),",")
+"augroup END
 
+" only show highlighted line in active pane
 augroup BgHighlight
     autocmd!
     autocmd WinEnter * set cul
@@ -205,21 +204,21 @@ function! ArrowsOff()
   imap <right> <nop>
 endfunc
 
-function! ArrowsOn()
-  map <up> <up>
-  map <down> <down>
-  map <left> <left>
-  map <right> <right>
-  imap <up> <up>
-  imap <down> <down>
-  imap <left> <left>
-  imap <right> <right>
-endfunc
+"function! ArrowsOn()
+  "map <up> <up>
+  "map <down> <down>
+  "map <left> <left>
+  "map <right> <right>
+  "imap <up> <up>
+  "imap <down> <down>
+  "imap <left> <left>
+  "imap <right> <right>
+"endfunc
 
-call ArrowsOff()
+"call ArrowsOff()
 
 nnoremap <leader>k :call ArrowsOn() <CR>
-nnoremap <leader>kk :call ArrowsOff() <CR>
+"nnoremap <leader>kk :call ArrowsOff() <CR>
 
 filetype plugin indent on                        " required for Vundle
 
