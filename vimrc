@@ -1,5 +1,5 @@
-set backupdir=~/.vim/bkup               " Directories for swp files
-set directory=~/.vim/bkup
+set backupdir=~/.vim/bkup               " Directories for bkup files
+set directory=~/.vim/bkup               " Directories for swp files
 
 set encoding=utf-8                      " The encoding displayed.
 set fileencoding=utf-8                  " The encoding written to file.
@@ -34,6 +34,7 @@ Bundle "ToadJamb/vim_test_runner"
 map <silent> <leader>t :call tt:TriggerTest()<CR>
 map <silent> <leader>r :call tt:TriggerPreviousTest()<CR>
 
+
 " Language support
 " livescript
 Bundle "gkz/vim-ls"
@@ -56,10 +57,15 @@ Bundle 'airblade/vim-gitgutter'
 " ag the silver searcher
 Bundle 'rking/ag.vim'
 
-" Janus libraries
-"Bundle "petdance/ack2" (replaced by ag)
-Bundle "ap/vim-css-color"
+" use unimpaired for buffer switching [-b and ]-b
+Bundle "tpope/vim-unimpaired"
+
+" file files, CTRLP mapped to F
+let g:ctrlp_map = 'F'
 Bundle "kien/ctrlp.vim"
+
+" Janus libraries
+Bundle "ap/vim-css-color"
 Bundle "tpope/vim-dispatch"
 Bundle "tpope/vim-endwise"
 Bundle "Lokaltog/vim-easymotion"
@@ -77,14 +83,11 @@ Bundle "ervandew/supertab"
 Bundle "tpope/vim-surround"
 Bundle "scrooloose/syntastic"
 Bundle "majutsushi/tagbar"
-Bundle "tpope/vim-unimpaired"
 Bundle "bronson/vim-trailing-whitespace"
 Bundle "vim-scripts/vimwiki"
 Bundle "thinca/vim-visualstar"
 Bundle "skalnik/vim-vroom"
 Bundle "mattn/webapi-vim"
-"Bundle "rgarver/Kwbd.vim"
-"Bundle "jeetsukumaran/vim-buffergator"
 
 " Zoom in and out of current pane (C-W, O)
 Bundle "itspriddle/ZoomWin"
@@ -137,11 +140,12 @@ nmap <C-j> ]e
 vmap <C-k> [egv
 vmap <C-j> ]egv
 
+
 " Searching
 set hlsearch
 set incsearch
 set ignorecase
-set smartcase
+
 set nowrap
 
 " always show the status bar (want this for airline)
@@ -193,16 +197,14 @@ nnoremap <leader>w <C-w>v<C-w>l
 nnoremap <leader>s <C-w>s<C-w>l
 
 " window resizing
-if bufwinnr(1)
-  map + <C-W>+
-  map _ <C-W>-
-  map > <C-W><
-  map < <C-W>>
-endif
+"if bufwinnr(1)
+  "map + <C-W>+
+  "map _ <C-W>-
+  "map > <C-W><
+  "map < <C-W>>
+"endif
 
-" buffer switching
-noremap <silent> <C-[> :bprev <CR>
-noremap <silent> <C-]> :bnext <CR>
+
 " allows switching between unsaved buffers
 set hidden
 
@@ -227,6 +229,19 @@ filetype plugin indent on                        " required for Vundle
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vimrc graveyard (below are items no longer being used)
 "
+  "" Map command-[ and command-] to indenting or outdenting
+  "" while keeping the original selection in visual mode
+  "vmap <D-]> >gv
+  "vmap <D-[> <gv
+
+  "nmap <D-]> >>
+  "nmap <D-[> <<
+
+  "omap <D-]> >>
+  "omap <D-[> <<
+
+  "imap <D-]> <Esc>>>i
+  "imap <D-[> <Esc><<i
 "
 " Add rspec runner
 "Bundle 'thoughtbot/vim-rspec'
@@ -260,3 +275,9 @@ filetype plugin indent on                        " required for Vundle
 "source $HOME/.vim/settings/settings.vim
 "source $HOME/.vim/settings/statusline.vim
 
+"Bundle "rgarver/Kwbd.vim"
+"Bundle "jeetsukumaran/vim-buffergator"
+"Bundle "petdance/ack2" (replaced by ag)
+" unite for file searching
+"Bundle "Shougo/unite.vim"
+"nnoremap f :Unite -start-insert file
