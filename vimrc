@@ -34,7 +34,6 @@ Bundle "ToadJamb/vim_test_runner"
 map <silent> <leader>t :call tt:TriggerTest()<CR>
 map <silent> <leader>r :call tt:TriggerPreviousTest()<CR>
 
-
 " Language support
 " livescript
 Bundle "gkz/vim-ls"
@@ -130,6 +129,22 @@ set softtabstop=2
 set expandtab ts=2 sw=2 ai
 set autoindent
 set smartindent
+
+" set the cursor to a vertical line in insert mode and a solid block
+" in command mode
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+
+"let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+"let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+"
+" upon hitting escape to change modes,
+" send successive move-left and move-right
+" commands to immediately redraw the cursor
+inoremap <special> <Esc> <Esc>hl
+
+" don't blink the cursor
+set guicursor+=i:blinkwait0
 
 " Show trailing whitespace
 set list listchars=tab:\ \ ,trail:.
