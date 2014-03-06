@@ -1,3 +1,7 @@
+if $SHELL =~ 'fish'
+set shell='/bin/bash'
+endif
+
 set backupdir=~/.vim/bkup               " Directories for bkup files
 set directory=~/.vim/bkup               " Directories for swp files
 
@@ -7,10 +11,23 @@ set fileencoding=utf-8                  " The encoding written to file.
 set nocompatible                        " be iMproved, required for Vundle
 filetype off                            " required for Vundle
 
+" prevent going into Ex mode
+map Q <Nop>
+
+" Disable CAPS LOCK
+" Execute 'lnoremap x X' and 'lnoremap X x' for each letter a-z.
+for c in range(char2nr('A'), char2nr('Z'))
+  execute 'lnoremap ' . nr2char(c+32) . ' ' . nr2char(c)
+  execute 'lnoremap ' . nr2char(c) . ' ' . nr2char(c+32)
+endfor
+
+" Kill the capslock when leaving insert mode.
+" autocmd InsertLeave * set iminsert=0
+
 " set runtime path for Vundle
-set rtp+=~/.vim/bundle/vundle/
+" set rtp+=~/.vim/bundle/vundle/
 " intialize Vundle
-call vundle#rc()
+" call vundle#rc()
 
 " let Vundle manage Vundle, required
 Bundle 'gmarik/vundle'
@@ -135,8 +152,9 @@ set smartindent
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
-"let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-"let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+" causes errors when not running in TMUX
+let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 "
 " upon hitting escape to change modes,
 " send successive move-left and move-right

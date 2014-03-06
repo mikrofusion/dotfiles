@@ -60,3 +60,7 @@ alias vim_test_runner='ruby ~/.vim/bundle/vim_test_runner/test_runner'
 # RVM
 if [[ -s "$HOME/.rvm/scripts/rvm" ]]; then . "$HOME/.rvm/scripts/rvm"; fi
 alias rspec="bundle exec rspec"
+
+
+# disable XON/XOFF flow control (hitting ctrl-s can cause this)
+stty -ixon
