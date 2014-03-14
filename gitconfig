@@ -8,7 +8,7 @@
 [color]
 	ui = true
 [core]
-	editor = vi
+	editor = vim
 [branch]
   autosetuprebase = always
 [alias]

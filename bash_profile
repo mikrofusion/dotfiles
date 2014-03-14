@@ -54,6 +54,7 @@ alias glogp='git log --pretty=format:"%h %s" --graph'
 alias gl='git log --color --graph --pretty=format:"Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
 
 alias ber='bundle exec rake'
+alias bergj='bundle exec rake guard:jasmine'
 
 #test runner
 alias vim_test_runner='ruby ~/.vim/bundle/vim_test_runner/test_runner'
@@ -63,4 +64,7 @@ alias rspec="bundle exec rspec"
 
 
 # disable XON/XOFF flow control (hitting ctrl-s can cause this)
-stty -ixon
+# stty -ixon
+#
+
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)

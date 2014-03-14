@@ -73,8 +73,11 @@ Bundle 'airblade/vim-gitgutter'
 " ag the silver searcher
 Bundle 'rking/ag.vim'
 
+" show buffers
+Bundle "jeetsukumaran/vim-buffergator"
+
 " use unimpaired for buffer switching [-b and ]-b
-Bundle "tpope/vim-unimpaired"
+" Bundle "tpope/vim-unimpaired"
 
 " file files, CTRLP mapped to F
 let g:ctrlp_map = 'F'
@@ -239,7 +242,7 @@ nnoremap <leader>s <C-w>s<C-w>l
 
 
 " allows switching between unsaved buffers
-set hidden
+" set hidden
 
 " remove ability to use arrow keys (help force vim level up)
 function! ArrowsOff()
@@ -309,7 +312,6 @@ filetype plugin indent on                        " required for Vundle
 "source $HOME/.vim/settings/statusline.vim
 
 "Bundle "rgarver/Kwbd.vim"
-"Bundle "jeetsukumaran/vim-buffergator"
 "Bundle "petdance/ack2" (replaced by ag)
 " unite for file searching
 "Bundle "Shougo/unite.vim"
