@@ -77,7 +77,8 @@ Bundle 'rking/ag.vim'
 Bundle "jeetsukumaran/vim-buffergator"
 
 " use unimpaired for buffer switching [-b and ]-b
-" Bundle "tpope/vim-unimpaired"
+" also used for line bubbling
+Bundle "tpope/vim-unimpaired"
 
 " file files, CTRLP mapped to F
 let g:ctrlp_map = 'F'
