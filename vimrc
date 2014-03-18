@@ -258,6 +258,8 @@ function! ArrowsOff()
 endfunc
 call ArrowsOff()
 
+" sytax highlighting for ejs files
+au BufNewFile,BufRead *.ejs set filetype=html
 
 nnoremap <leader>k :call ArrowsOn() <CR>
 
