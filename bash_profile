@@ -4,8 +4,8 @@ export LANG="en_US.UTF-8"
 parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
-export PS1="\w\[\033[36m\]\$(parse_git_branch)\[\033[00m\] $ "
-
+export PS1="╭─ \w\[\033[36m\]\$(parse_git_branch)\[\033[00m\]
+╰─> "
 export PATH=~/bin:/usr/local/bin:$PATH
 # Macports installer addition
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
