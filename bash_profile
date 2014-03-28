@@ -7,7 +7,6 @@ function set_prompt {
   local LIGHT_CYAN="\[\033[1;36m\]"
   local NO_COLOUR="\[\033[0m\]"
   local AQUA="\[\033[36m\]"
-
   local BLACK="\[\033[0;30m\]"
   local BLACKBOLD="\[\033[1;30m\]"
   local RED="\[\033[0;31m\]"
@@ -26,8 +25,12 @@ function set_prompt {
   local WHITEBOLD="\[\033[1;37m\]"
 
   export PS1="$CYAN ╭─ $WHITE\w$GREEN\$(parse_git_branch)$CYAN \n ╰─> $WHITE"
+  export GIT_PROMPT_START="$CYAN ╭─ $WHITE\w"
+  export GIT_PROMPT_END="$CYAN \n ╰─> $WHITE"
   export PATH=~/bin:/usr/local/bin:$PATH
 }
+
+#source ~/dotfiles/bash_files/bash-git-prompt/gitprompt.sh
 
 # Git branch in prompt.
 parse_git_branch() {
