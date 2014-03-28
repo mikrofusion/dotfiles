@@ -24,17 +24,18 @@ function set_prompt {
   local WHITE="\[\033[0;37m\]"
   local WHITEBOLD="\[\033[1;37m\]"
 
-  export PS1="$CYAN ╭─ $WHITE\w$GREEN\$(parse_git_branch)$CYAN \n ╰─> $WHITE"
-  export GIT_PROMPT_START="$CYAN ╭─ $WHITE\w"
-  export GIT_PROMPT_END="$CYAN \n ╰─> $WHITE"
+  export PS1="$CYAN ╭─ $WHITE\w$GREEN \$(parse_git_branch) $CYAN \n ╰─> $WHITE"
   export PATH=~/bin:/usr/local/bin:$PATH
 }
 
-#source ~/dotfiles/bash_files/bash-git-prompt/gitprompt.sh
 
 # Git branch in prompt.
-parse_git_branch() {
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+function parse_git_dirty {
+  [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"
+}
+
+function parse_git_branch {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
 }
 
 set_prompt
