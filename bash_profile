@@ -44,6 +44,14 @@ GIT_PROMPT_UNTRACKED="…"
 GIT_PROMPT_STASHED="${BoldBlue}⚑"
 GIT_PROMPT_CLEAN="✔"
 
+function start {
+  echo "╭─"
+}
+
+function end {
+  echo "╰─>"
+}
+
 #export PS1="$CYAN ╭─ $WHITE\w$GREEN\$(parse_git_branch)$CYAN \n ╰─> $WHITE"
 export GIT_PROMPT_START="$CYAN$(start) \w$WHITE"
 export GIT_PROMPT_END="$CYAN \n$(end) $WHITE"
