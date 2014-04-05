@@ -82,7 +82,7 @@ set -o vi
 
 # GIT helpers
 alias gf='cat ~/.bash_files/git_flow'
-alias gst='git status'
+alias gs='git status'
 alias gpl='git pull'
 alias gplr='git pull --rebase'
 alias gps='git push'
@@ -123,6 +123,7 @@ alias rspec="bundle exec rspec"
 
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)
 
+alias h='history'
 alias ll='ls -la'
 alias d='dirs -v'
 alias p='pushd'
