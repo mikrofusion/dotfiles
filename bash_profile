@@ -66,7 +66,7 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
-#alias tmux="TERM=screen-256color-bce tmux"
+alias tmux="TERM=screen-256color-bce tmux"
 export TERM=screen-256color-bce
 
 #git autocomplete

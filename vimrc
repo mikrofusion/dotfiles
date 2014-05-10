@@ -63,6 +63,7 @@ Bundle "cakebaker/scss-syntax.vim"
 Bundle "kchmck/vim-coffee-script"
 Bundle "chrisbra/csv.vim"
 Bundle "tpope/vim-git"
+Bundle "slim-template/vim-slim"
 
 " allow seamless TMUX / VIM integration
 Bundle 'christoomey/vim-tmux-navigator'
@@ -117,8 +118,9 @@ Bundle "airblade/vim-rooter"
 
 " vim airline (powerline-like theme)
 Bundle 'bling/vim-airline'
-let g:airline#extensions#tabline#enabled = 1    " add buffer tabs to top
-
+"let g:airline#extensions#tabline#enabled = 1    " add buffer tabs to top
+let g:airline#extensions#tabline#enabled = 1
+"
 " plugin to create airline theme for tmux
 Bundle "edkolev/tmuxline.vim"
 let g:airline_powerline_fonts = 1               " needed for powerline symbols
