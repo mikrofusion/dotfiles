@@ -54,6 +54,7 @@ map <silent> <leader>r :call tt:TriggerPreviousTest()<CR>
 " Language support
 " livescript
 Plugin 'gkz/vim-ls'
+Plugin 'digitaltoad/vim-jade'
 Plugin 'tpope/vim-rails'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'pangloss/vim-javascript'
@@ -126,7 +127,7 @@ Plugin 'edkolev/tmuxline.vim'
 let g:airline_powerline_fonts = 1               " needed for powerline symbols
 
 " visualization of vim markers
-Plugin 'kshenoy/vim-signature' 
+Plugin 'kshenoy/vim-signature'
 
 call vundle#end()
 filetype plugin indent on
