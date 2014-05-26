@@ -44,8 +44,10 @@ Plugin 'honza/vim-snippets'
 " Add number toggle (relative)
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 
+" vimux (VIM TMUX integration)
+Plugin 'benmills/vimux'
 " Add vim test runner
-Plugin 'ToadJamb/vim_test_runner'
+" Plugin 'ToadJamb/vim_test_runner'
 
 " vim test runner keys
 map <silent> <leader>t :call tt:TriggerTest()<CR>
@@ -272,6 +274,47 @@ nnoremap <leader>k :call ArrowsOn() <CR>
 
 filetype plugin indent on                        " required for Vundle
 
+" VIMUX
+ " Run the current file with rspec
+ map <Leader>rb :call VimuxRunCommand("clear; rspec " . bufname("%"))<CR>
+
+ " Prompt for a command to run
+ map <Leader>vp :VimuxPromptCommand<CR>
+
+ " Run last command executed by VimuxRunCommand
+ map <Leader>vl :VimuxRunLastCommand<CR>
+
+ " Inspect runner pane
+ map <Leader>vi :VimuxInspectRunner<CR>
+
+ " Close vim tmux runner opened by VimuxRunCommand
+ map <Leader>vq :VimuxCloseRunner<CR>
+
+ " Interrupt any command running in the runner pane
+ map <Leader>vx :VimuxInterruptRunner<CR>
+
+ " Zoom the runner pane (use <bind-key> z to restore runner pane)
+ map <Leader>vz :call VimuxZoomRunner()<CR>
+
+
+ "
+ "
+ "
+ "
+ "
+"runtime! after/**/*.vim
+"
+"
+"
+"
+"
+"
+"
+"
+"
+"
+"
+"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vimrc graveyard (below are items no longer being used)
 "
@@ -326,3 +369,4 @@ filetype plugin indent on                        " required for Vundle
 " unite for file searching
 "Bundle "Shougo/unite.vim"
 "nnoremap f :Unite -start-insert file
+"
