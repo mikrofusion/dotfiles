@@ -42,7 +42,19 @@ Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 
 " Add number toggle (relative)
-Plugin 'jeffkreeftmeijer/vim-numbertoggle'
+"Plugin 'jeffkreeftmeijer/vim-numbertoggle'
+set relativenumber
+set number
+
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set norelativenumber
+  else
+    set relativenumber
+  endif
+endfunc
+
+nnoremap <silent> <leader><SPACE> :call NumberToggle()<cr>
 
 " vimux (VIM TMUX integration)
 Plugin 'benmills/vimux'
@@ -221,7 +233,24 @@ augroup END
 "
 " remap jj to escape
 inoremap jj <esc>
-"
+
+" open when vim starts
+"autocmd vimenter * NERDTree
+
+" NERDTree 
+map <leader>n :NERDTreeToggle<CR>
+
+" open automatically
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" close wim if only window left open is a nerdtree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+
+
+
+
 " easier split navigation
 nnoremap <silent> <C-Right> <c-w>l
 nnoremap <silent> <C-Left> <c-w>h
