@@ -97,7 +97,7 @@ Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'tpope/vim-unimpaired'
 
 " file files, CTRLP mapped to F
-let g:ctrlp_map = 'F'
+let g:ctrlp_map = '<SPACE>'
 Plugin 'kien/ctrlp.vim'
 
 " Janus libraries
@@ -294,7 +294,7 @@ function! ArrowsOff()
   imap <left> <nop>
   imap <right> <nop>
 endfunc
-call ArrowsOff()
+"call ArrowsOff()
 
 " sytax highlighting for ejs files
 au BufNewFile,BufRead *.ejs set filetype=html
