@@ -97,8 +97,9 @@ Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'tpope/vim-unimpaired'
 
 " file files, CTRLP mapped to F
-let g:ctrlp_map = '<SPACE>'
 Plugin 'kien/ctrlp.vim'
+let g:ctrlp_map = '<c-t>'
+let g:ctrlp_cmd = 'CtrlP'
 
 " Janus libraries
 Plugin 'ap/vim-css-color'
