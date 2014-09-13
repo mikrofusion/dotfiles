@@ -1,7 +1,5 @@
 [user]
 	name = Mike Groseclose
-#	name = Mike Groseclose and Alex Weidmann
-#	name = Mike Groseclose and Bobby Matson
 	email = mike.groseclose@gmail.com
 [diff]
 	tool = vimdiff
