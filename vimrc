@@ -80,6 +80,9 @@ Plugin 'chrisbra/csv.vim'
 Plugin 'tpope/vim-git'
 Plugin 'slim-template/vim-slim'
 
+" ejs
+au BufNewFile,BufRead *.ejs set filetype=html
+
 " allow seamless TMUX / VIM integration
 Plugin 'christoomey/vim-tmux-navigator'
 
