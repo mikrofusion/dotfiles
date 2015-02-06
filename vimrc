@@ -80,6 +80,10 @@ Plugin 'chrisbra/csv.vim'
 Plugin 'tpope/vim-git'
 Plugin 'slim-template/vim-slim'
 
+" indentation
+Plugin 'nathanaelkane/vim-indent-guides'
+let g:indent_guides_enable_on_vim_startup = 1
+
 " ejs
 au BufNewFile,BufRead *.ejs set filetype=html
 
