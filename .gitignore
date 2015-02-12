@@ -16,3 +16,5 @@ vim/mustache.vim
 vim/bkup
 
 vim/bundle
+
+.DS_store
