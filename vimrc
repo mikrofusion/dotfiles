@@ -41,6 +41,12 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 
+Plugin 'pbrisbin/vim-mkdir.git'
+Plugin 'elixir-lang/vim-elixir'
+Plugin 'slashmili/alchemist.vim'
+"Plugin 'Valloric/YouCompleteMe'
+"Plugin 'larrylv/ycm-elixir'
+
 " Add number toggle (relative)
 "Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 set relativenumber
@@ -163,7 +169,10 @@ set number
 set ruler
 set background=dark
 set t_Co=256                        " foce vim to use 256 colors
-colorscheme jellybeans              " user jellybeans scheme
+
+if filereadable(expand("$HOME/.vim/bundle/jellybeans.vim/colors/jellybeans.vim"))
+  colorscheme jellybeans              " user jellybeans scheme
+endif
 
 " make the colors pretty
 highlight Normal ctermbg=none

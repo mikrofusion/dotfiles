@@ -22,6 +22,7 @@
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   latest = "!f() { cur=$(git symbolic-ref --quiet --short HEAD 2> /dev/null); git checkout $1; git pull origin $1; echo --${cur}--; git co ${cur}; }; f"
   par = "!f() { cur=$(git symbolic-ref --quiet --short HEAD 2> /dev/null); git checkout $1; git pull origin $1; echo --${cur}--; git co ${cur}; git rebase $1; }; f"
+  branches = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format='%(refname:short)'
 
 [push]
 	default = current
@@ -32,3 +33,11 @@
 [filter "media"]
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
+[filter "hawser"]
+	clean = git hawser clean %f
+	smudge = git hawser smudge %f
+	required = true
+[filter "lfs"]
+	clean = git lfs clean %f
+	smudge = git lfs smudge %f
+	required = true

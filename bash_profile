@@ -121,7 +121,7 @@ alias rspec="bundle exec rspec"
 # stty -ixon
 #
 
-export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 
 alias h='history'
 alias ll='ls -la'
@@ -136,4 +136,3 @@ alias o='popd'
 # MacPorts Installer addition on 2014-09-13_at_22:42:15: adding an appropriate PATH variable for use with MacPorts.
 export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 # Finished adapting your PATH environment variable for use with MacPorts.
-
